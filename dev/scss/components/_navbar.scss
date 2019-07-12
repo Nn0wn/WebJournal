@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+
+  .navmenu {
+    height: inherit;
+  }
+
+  ul {
+    display: inherit;
+    flex-direction: row;
+  }
+
+  li {
+    list-style: none;
+    display: flex;
+    //padding: 10px;
+    border-right: 1px solid darken($primeColor, $amount: 15);
+    border-bottom: 1px solid darken($primeColor, $amount: 15);
+    height: inherit;
+    text-align: center;
+    align-items: center;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+    }
+
+    &:hover {
+      background-color: darken($primeColor, $amount: 10);
+      .subnavmenu {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    .subnavmenu {
+      background-color: lighten($primeColor, $amount: 10);
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 100%;
+      margin-left: -1px;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: 0 0;
+      transition: 0.5s ease-in-out;
+
+      li {
+        justify-content: center;
+        border: 1px solid darken($primeColor, $amount: 15);
+        margin-top: -1px;
+        height: 40px;
+      }
+    }
+  }
+
+  a {
+    padding: 10px;
+    color: white;
+  }
+}

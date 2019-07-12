@@ -1,0 +1,32 @@
+$primeColor: #55aef1;
+$secColor: #e41111;
+$freeSpace: 30px;
+$headerSpace: 70px;
+$footerSpace: 50px;
+
+@import '../../node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
+@import 'reset.scss';
+@import 'grid.scss';
+@import 'typography';
+
+html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  color: black;
+  background-color: darken($color: white, $amount: 2);
+  padding-top: $headerSpace + $freeSpace;
+}
+
+@import 'header.scss';
+@import 'main.scss';
+@import 'footer.scss';
+@import 'components/navbar';
+@import 'components/submenu';
+@import 'components/choosepanel';

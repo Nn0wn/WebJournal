@@ -1,0 +1,75 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: $headerSpace;
+  font-size: 15px;
+  background-color: $primeColor;
+  z-index: 1000;
+
+  .container {
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    //padding: 0 $freeSpace 0 $freeSpace;
+
+    .navlogo {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: inherit;
+
+      .logo {
+        background-image: url();
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 0px;
+        height: 0px;
+        margin-top: 0px;
+      }
+    }
+
+    .logo {
+      background-image: url();
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 0px;
+      height: 0px;
+      margin-top: 0px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      height: inherit;
+      justify-content: center;
+      border-left: 1px solid darken($primeColor, $amount: 15);
+      border-bottom: 1px solid darken($primeColor, $amount: 15);
+
+      &:hover {
+        background-color: darken($primeColor, $amount: 10);
+        .submenu {
+          opacity: 1;
+          transform: scaleY(1);
+        }
+      }
+
+      ul {
+        height: inherit;
+      }
+
+      li {
+        a {
+          color: white;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

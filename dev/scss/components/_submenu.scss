@@ -1,0 +1,28 @@
+.submenu {
+  background-color: lighten($primeColor, $amount: 10);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  right: 0%;
+
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: 0.5s ease-in-out;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid darken($primeColor, $amount: 15);
+    margin-top: -1px;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: darken($primeColor, $amount: 10);
+    }
+  }
+}

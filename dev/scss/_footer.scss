@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  height: $footerSpace;
+  border-top: 1px solid black;
+  background-color: $primeColor;
+
+  .container {
+    height: 100%;
+    line-height: $footerSpace;
+    align-items: center;
+    padding: 0 $freeSpace 0 $freeSpace;
+  }
+}

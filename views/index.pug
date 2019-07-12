@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="stylesheets/styles.css")
+    body
+        header(class="header")
+            div(class="container")
+                div(class="navlogo")
+
+                    a(href="/" class="logo")
+
+                    nav(class="navbar")
+                        ul(class="navmenu")
+                            li
+                                a(href="") Find a student
+                            li
+                                a(href="") Statistics
+                                ul(class="subnavmenu")
+                                    li
+                                        a(href="") Lectors
+                                    li
+                                        a(href="") Disciplines
+                
+                ul(class="menu")
+                    li
+                        a(href="/") Menu
+                        ul(class="submenu")
+                            li
+                                a(href="") My Profile
+                            li
+                                a(href="") Settings 
+        div(class="main")
+            div(class="container")
+                div(class="content")
+                    div(class="table-header")
+                        h1
+                            if student
+                                a(href="") Student Name
+                            else
+                                p Student list
+                    div(class="table")
+                        table
+                            - var vals = [1,2,3,4];
+                            - var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
+                            for header in headers
+                                th= header
+                            for val in vals
+                                tr
+                                th= val
+                                for val in vals
+                                    td= val
+
+                div(class="sidebar")
+                    h1 Поиск
+                    form(action="" class="choosepanel")
+                        div(class="form-group")
+                            label(for="fio") Введите ФИО
+                            input(type="text" id="fio")
+                        - var faks = ["ФКТИ", "ФРТ", "ФЭЛ", "ФИБС", "ФЭА", "ФЭМ", "Открытый факультет", "Гуманитарный факультет"]
+                        div(class="form-group")
+                            label(for="faksel") Выберите Факультет   
+                            select(name="fakult" id="faksel")
+                                for fak in faks
+                                    option(value=faks.id) #{fak}
+                        - var curses = [1, 2, 3, 4, 5, 6]
+                        div(class="form-group")
+                            label(for="curssel") Выберите курс
+                            select(name="course" id="curssel")
+                                for curs in curses
+                                    option(value=curses.id) #{curs}
+                        - var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
+                        div(class="form-group")
+                            label(for="spec") Выберите специальность
+                            select(name="specialization" id="specs")
+                                for spec in specs
+                                    option(value=specs.id) #{spec}
+                        button(class="search-button") Найти
+
+        footer(class="footer")
+            div(class="container")
+                p Footer
