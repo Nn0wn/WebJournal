@@ -1,13 +1,13 @@
 const agregator = require('../modelagregator');
 
-const fktifakult = new agregator.Fakult({
-  name: 'FKTI'
-});
+// const fktifakult = new agregator.Fakult({
+//   name: 'FKTI'
+// });
 
-fktifakult.save((err) => {
-  if (err) {
-    throw err;
-  }
-});
+// fktifakult.save((err) => {
+//   if (err) {
+//     throw err;
+//   }
+// });
 
-module.exports = fktifakult;
+module.exports = agregator.Fakult.find({ name: 'FKTI' }).select('name');

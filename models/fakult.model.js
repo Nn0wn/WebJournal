@@ -4,12 +4,7 @@ const { Schema } = mongoose;
 
 const fakultSchema = new Schema({
   name: String,
-  courses: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'course'
-    }
-  ]
+  courses: String
 });
 
 const Fakult = mongoose.model('Fakult', fakultSchema);

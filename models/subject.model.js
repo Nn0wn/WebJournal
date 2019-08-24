@@ -5,13 +5,7 @@ const { Schema } = mongoose;
 
 const subjectSchema = new Schema({
   name: String,
-  lecturers: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      classification: String,
-      ref: 'lecturer'
-    }
-  ],
+  lecturers: String,
   semester: Number,
   marks: [mark.markSchema]
 });

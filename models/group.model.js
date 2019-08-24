@@ -3,10 +3,7 @@ const student = require('./student.model');
 
 const groupSchema = new mongoose.Schema({
   number: Number,
-  course: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'course'
-  },
+  course: String,
   year: Number,
   students: [student.studentSchema]
 });

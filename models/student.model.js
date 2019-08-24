@@ -7,10 +7,7 @@ const studentSchema = new Schema({
   name: String,
   surname: String,
   patronymic: String,
-  course: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'course'
-  },
+  course: String,
   semester: Number,
   year: Number,
   subjects: [subject.subjectSchema]

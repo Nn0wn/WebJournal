@@ -6,10 +6,7 @@ const lecturerSchema = new Schema({
   name: String,
   surname: String,
   patronymic: String,
-  department: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'department'
-  },
+  department: String,
   subjects: [String]
 });
 

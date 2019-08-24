@@ -4,12 +4,7 @@ const { Schema } = mongoose;
 
 const courseSchema = new Schema({
   name: String,
-  groups: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'group'
-    }
-  ],
+  groups: String,
   eduInfo: [
     {
       semester: Number,
