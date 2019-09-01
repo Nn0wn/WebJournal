@@ -1,0 +1,16 @@
+extends mainTemplate
+
+block mainContent
+    div(class="auth-box")
+        div(class="container")           
+            form(method="post" class="auth")
+                h1 Вход
+                div(class="form-group")
+                    label(for="email") Электронная почта
+                    input(type="email" id="email" name="email" required)
+                div(class="form-group")
+                    label(for="password") Пароль
+                    input(type="password" id="password" name="password" required)
+                div(class="button-group")
+                    a(href="/registration") Регистрация
+                    button(class="login-button") Войти

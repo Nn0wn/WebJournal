@@ -1,38 +1,6 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Document
-        link(rel="stylesheet", href="stylesheets/styles.css")
-    body
-        header(class="header")
-            div(class="container")
-                div(class="navlogo")
+extends layouts/header.pug
 
-                    a(href="/" class="logo")
-
-                    nav(class="navbar")
-                        ul(class="navmenu")
-                            li
-                                a(href="") Find a student
-                            li
-                                a(href="") Statistics
-                                ul(class="subnavmenu")
-                                    li
-                                        a(href="") Lectors
-                                    li
-                                        a(href="") Disciplines
-                
-                ul(class="menu")
-                    li
-                        a(href="/") Menu
-                        ul(class="submenu")
-                            li
-                                a(href="") My Profile
-                            li
-                                a(href="") Settings 
+block headerContent
         div(class="main")
             div(class="container")
                 div(class="content")
@@ -56,7 +24,7 @@ html(lang="en")
 
                 div(class="sidebar")
                     h1 Поиск
-                    form(action="" class="choosepanel")
+                    form(action="post" class="choosepanel")
                         div(class="form-group")
                             label(for="fio") Введите ФИО
                             input(type="text" id="fio")
@@ -65,22 +33,22 @@ html(lang="en")
                         div(class="form-group")
                             label(for="faksel") Выберите Факультет   
                             select(name="fakult" id="faksel")
-                                for fak in docs
-                                    option(value=docs.id) #{fak}
+                                for fak in faks
+                                    option(value=faks.id) #{fak.name}
                         - var curses = [1, 2, 3, 4, 5, 6]
                         div(class="form-group")
                             label(for="curssel") Выберите курс
                             select(name="course" id="curssel")
                                 for curs in curses
                                     option(value=curses.id) #{curs}
-                        - var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
+                        //- var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
                         div(class="form-group")
                             label(for="spec") Выберите специальность
                             select(name="specialization" id="specs")
                                 for spec in specs
-                                    option(value=specs.id) #{spec}
+                                    option(value=specs.id) #{spec.name}
                         button(class="search-button") Найти
-
+block headerFooter
         footer(class="footer")
             div(class="container")
-                p Footer
+                p Index footer

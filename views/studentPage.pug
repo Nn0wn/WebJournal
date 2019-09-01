@@ -1,0 +1,54 @@
+extends layouts/header.pug
+
+block headerContent
+    div(class="main")
+            div(class="container")
+                div(class="content")
+                    div(class="table-header")
+                        h1
+                            if student
+                                a(href="") Student Name
+                            else
+                                p= studentName
+                    div(class="table")
+                        table
+                            - var vals = [1,2,3,4];
+                            - var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
+                            for header in headers
+                                th= header
+                            for val in vals
+                                tr
+                                th= val
+                                for val in vals
+                                    td= val
+
+                //- div(class="sidebar")
+                //-     h1 Поиск
+                //-     form(action="" class="choosepanel")
+                //-         div(class="form-group")
+                //-             label(for="fio") Введите ФИО
+                //-             input(type="text" id="fio")
+                //-         - var faks = ["ФКТИ", "ФРТ", "ФЭЛ", "ФИБС", "ФЭА", "ФЭМ", "Открытый факультет", "Гуманитарный факультет"]
+                        
+                //-         div(class="form-group")
+                //-             label(for="faksel") Выберите Факультет   
+                //-             select(name="fakult" id="faksel")
+                //-                 for fak in faks
+                //-                     option(value=faks.id) #{fak.name}
+                //-         - var curses = [1, 2, 3, 4, 5, 6]
+                //-         div(class="form-group")
+                //-             label(for="curssel") Выберите курс
+                //-             select(name="course" id="curssel")
+                //-                 for curs in curses
+                //-                     option(value=curses.id) #{curs}
+                //-         - var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
+                //-         div(class="form-group")
+                //-             label(for="spec") Выберите специальность
+                //-             select(name="specialization" id="specs")
+                //-                 for spec in specs
+                //-                     option(value=specs.id) #{spec.name}
+                //-         button(class="search-button") Найти
+block headerFooter
+     footer(class="footer")
+            div(class="container")
+                p Student page footer   

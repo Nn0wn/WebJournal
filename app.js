@@ -5,6 +5,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+// const session = require('express-session');
 const database = require('./database');
 const config = require('./config');
 
