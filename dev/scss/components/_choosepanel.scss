@@ -21,10 +21,11 @@
     margin-top: 10px;
     width: 50%;
     height: 32px;
+    background-color: $primeColor;
     //background-color: $primeColor;
-    background-color: yellow;
-    border: 1px solid $primeColor;
-    color: black;
+    //border: 1px solid $primeColor;
+    border: 1px solid darken($primeColor, $amount: 15);
+    color: white;
     align-self: flex-end;
     //font-size: 16px;
 

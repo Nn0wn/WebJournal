@@ -7,7 +7,7 @@ $footerSpace: 50px;
 @import '../../node_modules/css-reset-and-normalize-sass/scss/reset-and-normalize.scss';
 @import 'reset.scss';
 @import 'grid.scss';
-@import 'typography';
+@import 'typography.scss';
 
 html {
   display: flex;
@@ -27,6 +27,7 @@ body {
 @import 'header.scss';
 @import 'main.scss';
 @import 'footer.scss';
-@import 'components/navbar';
-@import 'components/submenu';
-@import 'components/choosepanel';
+@import 'authbox.scss';
+@import 'components/navbar.scss';
+@import 'components/submenu.scss';
+@import 'components/choosepanel.scss';
