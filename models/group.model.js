@@ -3,8 +3,8 @@ const student = require('./student.model');
 
 const groupSchema = new mongoose.Schema({
   number: Number,
+  spec: String,
   course: String,
-  year: Number,
   students: [student.studentSchema]
 });
 

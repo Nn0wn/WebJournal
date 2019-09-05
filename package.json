@@ -20,6 +20,8 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
     "mongoose": "^5.5.13",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",

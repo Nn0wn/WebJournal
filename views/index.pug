@@ -32,7 +32,7 @@ block content
                                 th(class="table-enum table-body-td")= studs.indexOf(stud)
                                 //- for val in vals
                                 td(class="table-content-fio table-body-td")
-                                    a(class="table-content-fio-a" href='/students/' + stud.id) #{stud.studentProfile.name + ' ' + stud.studentProfile.surname + ' ' + stud.studentProfile.patronymic}
+                                    a(class="table-content-fio-a" href='/students/' + stud.id) #{stud.studentProfile.surname + ' ' + stud.studentProfile.name + ' ' + stud.studentProfile.patronymic}
                                 td(class="table-content-fakult table-body-td")= stud.studentProfile.fakult
                                 td(class="table-content-course table-body-td")= stud.studentProfile.course
                                 td(class="table-content-spec table-body-td")= stud.studentProfile.spec

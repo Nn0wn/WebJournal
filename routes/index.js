@@ -18,36 +18,36 @@ const models = require('../models/modelagregator');
 //   });
 // });
 
-const faksultets = [
-  'ФКТИ',
-  'ФРТ',
-  'ФЭЛ',
-  'ФИБС',
-  'ФЭА',
-  'ФЭМ',
-  'Открытый факультет',
-  'Гуманитарный факультет'
-];
+// const faksultets = [
+//   'ФКТИ',
+//   'ФРТ',
+//   'ФЭЛ',
+//   'ФИБС',
+//   'ФЭА',
+//   'ФЭМ',
+//   'Открытый факультет',
+//   'Гуманитарный факультет'
+// ];
 
-const specialisations = [
-  'Applied Mathematics and Informatics',
-  'Computer Systems Engineering and Informatics',
-  'Information Systems and Technologies',
-  'Software Engineering',
-  'Computer Security',
-  'System Analysis and Control',
-  'Control in Technical Systems'
-];
+// const specialisations = [
+//   'Applied Mathematics and Informatics',
+//   'Computer Systems Engineering and Informatics',
+//   'Information Systems and Technologies',
+//   'Software Engineering',
+//   'Computer Security',
+//   'System Analysis and Control',
+//   'Control in Technical Systems'
+// ];
 
-const specialisationsRus = [
-  'Прикладная математика и информатика',
-  'Информатика и разработака компьютерных систем',
-  'Информационные системы и технологии',
-  'Программная инженерия',
-  'Компьютерная безопасность',
-  'Контроль и анализ систем',
-  'Управление в технических системах'
-];
+// const specialisationsRus = [
+//   'Прикладная математика и информатика',
+//   'Информатика и разработака компьютерных систем',
+//   'Информационные системы и технологии',
+//   'Программная инженерия',
+//   'Компьютерная безопасность',
+//   'Контроль и анализ систем',
+//   'Управление в технических системах'
+// ];
 
 // for (let i = 0; i < specialisationsRus.length; i += 1) {
 // const fktifakult = new agregator.Fakult({
@@ -86,7 +86,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   if (req.session.userId) {
     models.Fakult.find({}, 'name', (err, faks) => {
-      models.Course.find({}, 'name', (err1, specs) => {
+      models.Spec.find({}, 'name', (err1, specs) => {
         models.User.find({}, (err2, studs) => {
           if (err) {
             console.log(err);
@@ -115,7 +115,7 @@ router.get('/students/:studentId', (req, res) => {
   if (req.session.userId) {
     models.User.findById(req.params.studentId, (err1, data) => {
       if (data) {
-        res.render('studentPage', { studentName: req.params.studentId });
+        res.render('studentPage', { student: data });
       } else {
         res.render('error', {
           message: 'Студент не найден',

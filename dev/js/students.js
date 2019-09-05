@@ -31,7 +31,7 @@ $(() => {
           $('.table-body').after(
             `<tr class="table-body-td"><th>${item[0]}</th><td><a href="/students/${
               item[1]._id
-            }">${`${item[1].studentProfile.name} ${item[1].studentProfile.surname} ${item[1].studentProfile.patronymic}`}</a></td><td>${
+            }">${`${item[1].studentProfile.surname} ${item[1].studentProfile.name} ${item[1].studentProfile.patronymic}`}</a></td><td>${
               item[1].studentProfile.fakult
             }</td><td>${item[1].studentProfile.course}</td><td>${
               item[1].studentProfile.spec

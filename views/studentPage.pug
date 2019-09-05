@@ -9,21 +9,29 @@ block content
                 div(class="content")
                     div(class="table-header")
                         h1
-                            if student
-                                a(href="") Student Name
-                            else
-                                p= studentName
-                    div(class="table")
-                        table
-                            - var vals = [1,2,3,4];
-                            - var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
-                            for header in headers
-                                th= header
-                            for val in vals
-                                tr
-                                th= val
-                                for val in vals
-                                    td= val
+                            //- if student
+                            //-     a(href="") Student Name
+                            //- else
+                            p= student.studentProfile.surname + ' ' + student.studentProfile.name + ' ' + student.studentProfile.patronymic
+                    
+                    div(class="accordion" id="accordion")
+                        h3(class="block-title ui-accordion-header-collapsed") 1
+                        div(class="block-content")
+                            div(class="table")
+                                table
+                                    - var vals = [1,2,3,4];
+                                    //- var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
+                                    //-for header in headers
+                                    //-   th= header
+                                    for val in vals
+                                        tr
+                                        th= val
+                                        td
+                        h3(class="block-title") 2
+                        div(class="block-content")
+                            p Just test
+                    
+                    
 
                 //- div(class="sidebar")
                 //-     h1 Поиск

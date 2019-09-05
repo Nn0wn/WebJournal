@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const markSchema = new Schema({
-  value: Number,
+  value: String,
   date: { type: Date, default: Date.now },
   comments: String
 });

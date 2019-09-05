@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const fakultSchema = new Schema({
   name: String,
-  courses: String
+  specs: String
 });
 
 const Fakult = mongoose.model('Fakult', fakultSchema);

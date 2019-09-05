@@ -1,5 +1,5 @@
 const { Mark } = require('./mark.model');
-const { Course } = require('./course.model');
+const { Spec } = require('./spec.model');
 const { Department } = require('./department.model');
 const { Fakult } = require('./fakult.model');
 const { Group } = require('./group.model');
@@ -10,7 +10,7 @@ const { User } = require('./user.model');
 
 module.exports = {
   Mark,
-  Course,
+  Spec,
   Department,
   Fakult,
   Group,

@@ -7,11 +7,10 @@ const studentSchema = new Schema({
   name: String,
   surname: String,
   patronymic: String,
-  course: String,
-  semester: Number,
+  semester: String,
   fakult: String,
   spec: String,
-  year: Number,
+  course: String,
   subjects: [subject.subjectSchema]
 });
 
