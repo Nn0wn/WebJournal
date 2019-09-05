@@ -1,10 +1,28 @@
-﻿doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/main.css')
-  body
-    block content
-    block footer
-      #footer
-        p This is footer
+header(class="header")
+    div(class="container")
+        div(class="navlogo")
+
+            a(href="/" class="logo")
+
+            nav(class="navbar")
+                ul(class="navmenu")
+                    li
+                        a(href="/") Find a student
+                    li
+                        a(href="") Statistics
+                        ul(class="subnavmenu")
+                            li
+                                a(href="") Lectors
+                            li
+                                a(href="") Disciplines
+
+        ul(class="menu")
+            li
+                a(href="/") Menu
+                ul(class="submenu")
+                    li
+                        a(href="") My Profile
+                    li
+                        a(href="") Settings
+                    li
+                        a(href="/auth/logout") Выход
