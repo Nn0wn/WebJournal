@@ -47,6 +47,11 @@
           }
 
           th {
+            .table-head-th-0 {
+              max-width: 8px;
+              min-width: 8px;
+            }
+
             padding: 5px;
             border: 1px solid black;
             color: white;
@@ -57,6 +62,15 @@
             padding-left: 15px;
             padding-right: 15px;
             border: 1px solid black;
+          }
+
+          a {
+            color: $primeColor;
+
+            &:hover {
+              color: $errorColor;
+              text-decoration: underline;
+            }
           }
         }
       }

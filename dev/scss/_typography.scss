@@ -59,3 +59,26 @@ small,
 .font_small {
   font-size: $base-font-size / $font-scale-ratio;
 }
+
+div.success,
+p.success,
+div.error,
+p.error {
+  border: 1px solid;
+  font-size: 0.8em;
+  padding: $freeSpace/4;
+}
+
+div.success,
+p.success {
+  background-color: lighten($successColor, $amount: 50%);
+  border-color: $successColor;
+  color: $successColor;
+}
+
+div.error,
+p.error {
+  background-color: lighten($errorColor, 50%);
+  border-color: $errorColor;
+  color: $errorColor;
+}
