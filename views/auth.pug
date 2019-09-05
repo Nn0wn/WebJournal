@@ -1,0 +1,31 @@
+extends mainTemplate.pug
+
+block content
+    div(class="auth-box")
+        div(class="container")           
+            form(method="post" class="login")
+                h1 Вход
+                div(class="form-group")
+                    label(for="log-email") Электронная почта
+                    input(type="email" id="log-email" name="log-email" required)
+                div(class="form-group")
+                    label(for="log-password") Пароль
+                    input(type="password" id="log-password" name="log-password" required)
+                div(class="button-group")
+                    a(class="switch-ref") Регистрация
+                    button(class="login-button") Войти
+
+            form(method="post" class="register")
+                h1 Регистрация
+                div(class="form-group")
+                    label(for="reg-email") Электронная почта
+                    input(type="email" id="reg-email" name="reg-email" required)          
+                div(class="form-group")
+                    label(for="reg-password") Пароль
+                    input(type="password" id="reg-password" name="reg-password" required)
+                div(class="form-group")
+                    label(for="reg-password-re") Повторите пароль
+                    input(type="password" id="reg-password-re" name="reg-password-re" required)
+                div(class="button-group")
+                    a(class="switch-ref") Есть аккаунт?
+                    button(class="register-button") Зарегистрироваться

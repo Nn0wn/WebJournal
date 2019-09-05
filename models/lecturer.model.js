@@ -7,7 +7,13 @@ const lecturerSchema = new Schema({
   surname: String,
   patronymic: String,
   department: String,
-  subjects: [String]
+  subjects: [String],
+  studInfo: [
+    {
+      group: String,
+      subject: String
+    }
+  ]
 });
 
 const Lecturer = mongoose.model('Lecturer', lecturerSchema);

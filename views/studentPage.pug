@@ -1,6 +1,9 @@
-extends layouts/header.pug
+extends mainTemplate.pug
 
-block headerContent
+block header
+    include layouts/header.pug
+
+block content
     div(class="main")
             div(class="container")
                 div(class="content")
@@ -48,7 +51,5 @@ block headerContent
                 //-                 for spec in specs
                 //-                     option(value=specs.id) #{spec.name}
                 //-         button(class="search-button") Найти
-block headerFooter
-     footer(class="footer")
-            div(class="container")
-                p Student page footer   
+block footer
+    include layouts/footer.pug

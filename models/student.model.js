@@ -9,6 +9,8 @@ const studentSchema = new Schema({
   patronymic: String,
   course: String,
   semester: Number,
+  fakult: String,
+  spec: String,
   year: Number,
   subjects: [subject.subjectSchema]
 });

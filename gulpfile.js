@@ -10,6 +10,8 @@ const cssnano = require('gulp-cssnano');
 const plumber = require('gulp-plumber');
 const nodemon = require('gulp-nodemon');
 const browserSync = require('browser-sync');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
 /* eslint-enable node/no-unpublished-require */
 
 function sassTranslate() {
@@ -33,6 +35,13 @@ function pugTranslate() {
     .pipe(pug())
     .pipe(cleanHTML())
     .pipe(dest('views'));
+}
+
+function jsTranslate() {
+  return src('dev/js/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(uglify())
+    .pipe(dest('./public/javascripts'));
 }
 
 function nodemonTask(done) {
@@ -73,6 +82,7 @@ function browserSyncTask(done) {
 function watchTask() {
   watch('dev/scss/**/*.scss', sassTranslate);
   watch('dev/**/*.pug', pugTranslate);
+  watch('dev/**/*.js', jsTranslate);
 }
 
 // gulp.task('watch', () => {
@@ -85,7 +95,7 @@ function watchTask() {
 module.exports.default = series(
   // parallel(sassTranslate, pugTranslate),
 
-  parallel(sassTranslate, pugTranslate),
+  parallel(sassTranslate, pugTranslate, jsTranslate),
   nodemonTask,
   browserSyncTask,
   watchTask

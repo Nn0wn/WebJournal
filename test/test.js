@@ -1,4 +1,4 @@
-const agregator = require('../modelagregator');
+const agregator = require('../models/modelagregator');
 
 // const fktifakult = new agregator.Fakult({
 //   name: 'FKTI'

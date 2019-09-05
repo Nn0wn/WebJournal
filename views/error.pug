@@ -1,6 +1,15 @@
 ﻿extends mainTemplate.pug
 
-block mainContent
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+block header
+  if userId
+    include layouts/header.pug
+
+block content
+  div(class="main")
+    h1= message
+    h2= error.status
+    pre #{error.stack}
+                                  
+block footer
+  if userId
+    include layouts/footer.pug

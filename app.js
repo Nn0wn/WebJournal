@@ -5,7 +5,9 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-// const session = require('express-session');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const database = require('./database');
 const config = require('./config');
 
@@ -15,6 +17,17 @@ const routes = require('./routes/index');
 const users = require('./routes/users');
 
 const app = express();
+
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
+  })
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -55,10 +68,13 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use((err, req, res) => {
+  const { userId } = req.session;
+
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
+    userId
   });
 });
 

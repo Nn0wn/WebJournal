@@ -1,6 +1,9 @@
-extends layouts/header.pug
+extends mainTemplate.pug
 
-block headerContent
+block header 
+    include layouts/header.pug
+
+block content
         div(class="main")
             div(class="container")
                 div(class="content")
@@ -12,43 +15,56 @@ block headerContent
                                 p Student list
                     div(class="table")
                         table
+                            
                             - var vals = [1,2,3,4];
                             - var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
                             for header in headers
-                                th= header
-                            for val in vals
+                                - var nHeader = 'table-head-th-' + headers.indexOf(header);
+                                th(class=nHeader)= header
+                            //- for val in vals
+                            //-     tr
+                            //-     th= val
+                            //-     for val in vals
+                            //-         td= val
+                            tr(class="table-body")
+                            for stud in studs
                                 tr
-                                th= val
-                                for val in vals
-                                    td= val
+                                th(class="table-enum table-body-td")= studs.indexOf(stud)
+                                //- for val in vals
+                                td(class="table-content-fio table-body-td")
+                                    a(class="table-content-fio-a" href='/students/' + stud.id) #{stud.studentProfile.name + ' ' + stud.studentProfile.surname + ' ' + stud.studentProfile.patronymic}
+                                td(class="table-content-fakult table-body-td")= stud.studentProfile.fakult
+                                td(class="table-content-course table-body-td")= stud.studentProfile.course
+                                td(class="table-content-spec table-body-td")= stud.studentProfile.spec
 
                 div(class="sidebar")
                     h1 Поиск
                     form(action="post" class="choosepanel")
                         div(class="form-group")
                             label(for="fio") Введите ФИО
-                            input(type="text" id="fio")
+                            input(type="text" id="fio" name="fio" maxlength="255")
                         //- var faks = ["ФКТИ", "ФРТ", "ФЭЛ", "ФИБС", "ФЭА", "ФЭМ", "Открытый факультет", "Гуманитарный факультет"]
                         //- var faks = agregator.Fakult.find()
                         div(class="form-group")
-                            label(for="faksel") Выберите Факультет   
-                            select(name="fakult" id="faksel")
+                            label(for="fakult") Выберите Факультет   
+                            select(name="fakult" id="fakult")
+                                option(value="") Не выбрано
                                 for fak in faks
                                     option(value=faks.id) #{fak.name}
                         - var curses = [1, 2, 3, 4, 5, 6]
                         div(class="form-group")
-                            label(for="curssel") Выберите курс
-                            select(name="course" id="curssel")
+                            label(for="course") Выберите курс
+                            select(name="course" id="course")
+                                option(value="") Не выбрано
                                 for curs in curses
                                     option(value=curses.id) #{curs}
                         //- var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
                         div(class="form-group")
                             label(for="spec") Выберите специальность
-                            select(name="specialization" id="specs")
+                            select(name="spec" id="spec")
+                                option(value="") Не выбрано
                                 for spec in specs
                                     option(value=specs.id) #{spec.name}
                         button(class="search-button") Найти
-block headerFooter
-        footer(class="footer")
-            div(class="container")
-                p Index footer
+block footer
+    include layouts/footer.pug
