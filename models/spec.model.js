@@ -13,6 +13,6 @@ const specSchema = new Schema({
   ]
 });
 
-const Spec = mongoose.model('Course', specSchema);
+const Spec = mongoose.model('Spec', specSchema);
 
 module.exports = { Spec, specSchema };

@@ -4,14 +4,11 @@ const subject = require('./subject.model');
 const { Schema } = mongoose;
 
 const studentSchema = new Schema({
-  name: String,
-  surname: String,
-  patronymic: String,
-  semester: String,
+  semesters: [{ number: String, subjects: [subject.subjectSchema] }],
   fakult: String,
   spec: String,
-  course: String,
-  subjects: [subject.subjectSchema]
+  group: String,
+  course: String
 });
 
 const Student = mongoose.model('Student', studentSchema);

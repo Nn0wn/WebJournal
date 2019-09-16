@@ -5,8 +5,7 @@ const { Schema } = mongoose;
 
 const subjectSchema = new Schema({
   name: String,
-  lecturers: String,
-  semester: String,
+  // semester: String,
   marks: [mark.markSchema]
 });
 

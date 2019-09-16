@@ -47,9 +47,11 @@
           }
 
           th {
-            .table-head-th-0 {
-              max-width: 8px;
-              min-width: 8px;
+            .table-head-th-1,
+            .table-head-th-2,
+            .table-head-th-3,
+            .table-head-th-4 {
+              width: 10000px;
             }
 
             padding: 5px;
@@ -70,6 +72,38 @@
             &:hover {
               color: $errorColor;
               text-decoration: underline;
+            }
+          }
+
+          .marks {
+            display: flex;
+            flex-direction: row;
+            //justify-content: space-between;
+            //width: 100%;
+
+            button {
+              border: 0px;
+            }
+
+            button[class^='mark-'] {
+              align-self: flex-start;
+              padding: 7px;
+              margin: 5px;
+            }
+
+            .mark2 {
+              background-color: lighten(red, $amount: 15%);
+              color: white;
+            }
+
+            .mark3 {
+              background-color: coral;
+              color: white;
+            }
+
+            .mark4 {
+              background-color: lightgreen;
+              color: black;
             }
           }
         }

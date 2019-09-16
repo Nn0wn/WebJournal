@@ -5,59 +5,57 @@ block header
 
 block content
     div(class="main")
+            if canChange
+                div(class='dialog' id='dialog')
+                    form(id="mark-form")
+                        fieldset
+                            div(class="form-group")
+                                label(for="mark-select") Оценка
+                                select(name="mark-select" id='mark-select')
+                                    option(value="") Не выбрано
+                                    option(value="н") Не пристуствовал
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                    option(value="4") 4
+                                    option(value="5") 5
+                            div(class="form-group")
+                                label(for="comment") Комментарий
+                                textarea(name="comment" id='comment' cols="30" rows="3")
+                            //-button(class="submit-button") Ok
             div(class="container")
                 div(class="content")
                     div(class="table-header")
                         h1
-                            //- if student
-                            //-     a(href="") Student Name
-                            //- else
-                            p= student.studentProfile.surname + ' ' + student.studentProfile.name + ' ' + student.studentProfile.patronymic
+                            p= student.surname + ' ' + student.name + ' ' + student.patronymic
                     
                     div(class="accordion" id="accordion")
-                        h3(class="block-title ui-accordion-header-collapsed") 1
-                        div(class="block-content")
-                            div(class="table")
-                                table
-                                    - var vals = [1,2,3,4];
-                                    //- var headers = ["", "ФИО", "Факультет", "Курс", "Специальность"];
-                                    //-for header in headers
-                                    //-   th= header
-                                    for val in vals
-                                        tr
-                                        th= val
-                                        td
-                        h3(class="block-title") 2
-                        div(class="block-content")
-                            p Just test
-                    
-                    
-
-                //- div(class="sidebar")
-                //-     h1 Поиск
-                //-     form(action="" class="choosepanel")
-                //-         div(class="form-group")
-                //-             label(for="fio") Введите ФИО
-                //-             input(type="text" id="fio")
-                //-         - var faks = ["ФКТИ", "ФРТ", "ФЭЛ", "ФИБС", "ФЭА", "ФЭМ", "Открытый факультет", "Гуманитарный факультет"]
-                        
-                //-         div(class="form-group")
-                //-             label(for="faksel") Выберите Факультет   
-                //-             select(name="fakult" id="faksel")
-                //-                 for fak in faks
-                //-                     option(value=faks.id) #{fak.name}
-                //-         - var curses = [1, 2, 3, 4, 5, 6]
-                //-         div(class="form-group")
-                //-             label(for="curssel") Выберите курс
-                //-             select(name="course" id="curssel")
-                //-                 for curs in curses
-                //-                     option(value=curses.id) #{curs}
-                //-         - var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
-                //-         div(class="form-group")
-                //-             label(for="spec") Выберите специальность
-                //-             select(name="specialization" id="specs")
-                //-                 for spec in specs
-                //-                     option(value=specs.id) #{spec.name}
-                //-         button(class="search-button") Найти
+                        for semester in student.studentProfile.semesters
+                            h3(class="block-title ui-accordion-header-collapsed")= 'Семестр:' + semester.number
+                            div(class="block-content")
+                                div(class="table")
+                                    table
+                                        for subject in semester.subjects
+                                            if show === 'all'
+                                                tr
+                                                th(class='subject-' + subject.id)= subject.name
+                                                td
+                                                    div(class="marks")
+                                                        for mark in subject.marks
+                                                            button(class="mark-" class=mark.id class=subject.id name="mark-" + mark.id class="mark" + mark.value id=mark.id title="Дата: " + mark.date +". Комментарии: " + mark.comments)= mark.value
+                                                        if canChange
+                                                            button(class="mark- new" class=subject.id name="mark-new" title="Add a new mark" id="new" + subject.id) +
+                                            else
+                                                for approvedSbj in show
+                                                    if approvedSbj === subject.name 
+                                                        tr
+                                                        th(class='subject-' + subject.id)= subject.name
+                                                        td
+                                                            div(class="marks")
+                                                                for mark in subject.marks
+                                                                    button(class="mark-" class=mark.id class=subject.id name="mark-" + mark.id class="mark" + mark.value id=mark.id title="Дата: " + mark.date +". Комментарии: " + mark.comments)= mark.value
+                                                                if canChange
+                                                                    button(class="mark- new" class=subject.id name="mark-new" title="Add a new mark" id="new" + subject.id) +               
+                                        
 block footer
     include layouts/footer.pug

@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const markSchema = new Schema({
   value: String,
   date: { type: Date, default: Date.now },
+  lastUpdated: { type: Date, default: Date.now },
   comments: String
 });
 

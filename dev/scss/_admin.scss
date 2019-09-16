@@ -1,0 +1,20 @@
+.student-form,
+.lecturer-form {
+  display: none;
+}
+
+input {
+  border-color: 1px solid lightgray;
+}
+
+input,
+textarea,
+select {
+  &.error {
+    border-color: $errorColor;
+    color: $errorColor;
+    &::placeholder {
+      color: lighten($errorColor, $amount: 20);
+    }
+  }
+}

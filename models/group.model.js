@@ -1,11 +1,23 @@
 const mongoose = require('mongoose');
-const student = require('./student.model');
+
+const { Schema } = mongoose;
 
 const groupSchema = new mongoose.Schema({
-  number: Number,
+  name: String,
   spec: String,
   course: String,
-  students: [student.studentSchema]
+  students: [{ type: Schema.Types.ObjectId, ref: 'Student' }],
+  subjects: [
+    {
+      name: String,
+      lecturers: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Lecturer'
+        }
+      ]
+    }
+  ]
 });
 
 const Group = mongoose.model('Group', groupSchema);

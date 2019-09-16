@@ -1,0 +1,32 @@
+.accordion {
+  .ui-state-default {
+    background-color: darken($color: white, $amount: 2);
+    border-color: lightgray;
+  }
+
+  .ui-state-active {
+    background-color: $primeColor;
+    //background-color: red;
+    border-color: darken($primeColor, $amount: 15);
+  }
+
+  .ui-state-focus {
+    outline: none;
+  }
+  .ui-corner-all,
+  .ui-corner-top,
+  .ui-corner-left,
+  .ui-corner-tl {
+    // border-top-left-radius: 0px;
+    // border-top-right-radius: 0px;
+    // border-bottom-left-radius: 0px;
+    // border-bottom-right-radius: 0px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+}
+
+.admin-accordion {
+  width: 50%;
+}

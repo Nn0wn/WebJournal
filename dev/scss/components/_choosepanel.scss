@@ -33,15 +33,4 @@
       background-color: darken($primeColor, $amount: 10);
     }
   }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    // border: 0.5px solid lightgrey;
-    // padding: 10px;
-    label {
-      margin-bottom: 4px;
-    }
-  }
 }

@@ -17,7 +17,7 @@ $(() => {
       contentType: 'application/json',
       url: '/search/students'
     }).done((res) => {
-      console.log(res);
+      // console.log(res);
       $('.table-body-td').remove();
       $('th').css('width', '1000px');
       $('.table-head-th-0').css('width', '8px');
@@ -27,17 +27,20 @@ $(() => {
       Object.entries(res.data)
         .reverse()
         .forEach((item) => {
-          console.log(item[1].id);
-          $('.table-body').after(
-            `<tr class="table-body-td"><th>${item[0]}</th><td><a href="/students/${
-              item[1]._id
-            }">${`${item[1].studentProfile.surname} ${item[1].studentProfile.name} ${item[1].studentProfile.patronymic}`}</a></td><td>${
-              item[1].studentProfile.fakult
-            }</td><td>${item[1].studentProfile.course}</td><td>${
-              item[1].studentProfile.spec
-            }</td></tr>`
-            /* eslint-enable no-underscore-dangle */
-          );
+          // console.log(item[1].id);
+          if (item[1].studentProfile && item[1].studentProfile._id) {
+            $('.table-body').after(
+              `<tr class="table-body-td"><th>${parseInt(item[0], 10)
+                + parseInt(1, 10)}</th><td><a href="/students/${
+                item[1]._id
+              }">${`${item[1].surname} ${item[1].name} ${item[1].patronymic}`}</a></td><td>${
+                item[1].studentProfile.fakult
+              }</td><td>${item[1].studentProfile.course}</td><td>${
+                item[1].studentProfile.spec
+              }</td></tr>`
+              /* eslint-enable no-underscore-dangle */
+            );
+          }
         });
     });
   });

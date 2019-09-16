@@ -5,6 +5,10 @@ const lecturer = require('./lecturer.model');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+  name: String,
+  surname: String,
+  patronymic: String,
+
   email: {
     type: String,
     required: true
@@ -12,6 +16,10 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true
+  },
+  isAdmin: {
+    type: Boolean,
     required: true
   },
   studentProfile: student.studentSchema,

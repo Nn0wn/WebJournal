@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const lecturerSchema = new Schema({
-  name: String,
-  surname: String,
-  patronymic: String,
   department: String,
   subjects: [String],
   studInfo: [

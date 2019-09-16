@@ -1,0 +1,25 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  // border: 0.5px solid lightgrey;
+  // padding: 10px;
+  label {
+    margin-bottom: 4px;
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+
+  label {
+    margin-right: 10px;
+  }
+
+  input {
+    margin-left: 10px;
+  }
+}
