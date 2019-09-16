@@ -46,10 +46,13 @@ router.get('/students/:studentId', (req, res) => {
             } else if (lookingUser.lecturerProfile) {
               const subjects = [];
               for (let i = 0; i < lookingUser.lecturerProfile.studInfo.length; i += 1) {
+                console.log(lookingUser.lecturerProfile.studInfo.length);
                 if (lookingUser.lecturerProfile.studInfo[i].group === data.studentProfile.group) {
+                  console.log('insert');
                   subjects.push(lookingUser.lecturerProfile.studInfo[i].subject);
                 }
               }
+              console.log(subjects);
               if (Array.isArray(subjects) && subjects.length) {
                 res.render('studentPage', { student: data, canChange: true, show: subjects });
               } else {
@@ -347,7 +350,7 @@ router.post('/administration/newuser', (req, res) => {
             patronymic: req.body.patronymic,
             isAdmin: req.body.isAdmin,
             'studentProfile.fakult': req.body.fakult,
-            // 'studentProfile.spec': req.body.spec,
+            'studentProfile.spec': req.body.spec,
             'studentProfile.course': req.body.course
           },
           (err1, dat) => {
@@ -370,7 +373,7 @@ router.post('/administration/newuser', (req, res) => {
       bcrypt.hash('test', null, null, (err, hash) => {
         models.User.create(
           {
-            email: 'test2@test',
+            email: 'random@ru',
             password: hash,
             name: req.body.name,
             surname: req.body.surname,
@@ -479,7 +482,27 @@ router.post('/administration/get/group', (req, res) => {
 
 router.post('/administration/set/group/lecturer', (req, res) => {
   console.log(req.body);
-  // todoooo
+  models.Group.findByIdAndUpdate(req.body.group, { upsert: true }, (err, group) => {
+    models.User.findByIdAndUpdate(req.body.lecturer, { upsert: true }, (err1, lecturer) => {
+      console.log(group);
+      for (let i = 0; i < group.subjects.length; i += 1) {
+        console.log(group.subjects[i]);
+        if (group.subjects[i].name === req.body.subject) {
+          group.subjects[i].lecturers.push(req.body.lecturer);
+          lecturer.lecturerProfile.studInfo.push({
+            group: group.name,
+            subject: req.body.subject
+          });
+          lecturer.save();
+          group.save();
+          console.log('pushed');
+          res.json({
+            ok: true
+          });
+        }
+      }
+    });
+  });
 });
 
 module.exports = router;

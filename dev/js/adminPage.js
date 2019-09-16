@@ -178,8 +178,12 @@ $(() => {
       }
     } else if (Array.isArray(errorFields) && errorFields.length === 0) {
       const data = {
-        // todooo
+        lecturer: $('#lecturer-chose').val(),
+        group: $('#group-chose').val(),
+        subject: $('#subject-chose').val()
       };
+
+      console.log(data);
 
       $.ajax({
         type: 'POST',

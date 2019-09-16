@@ -46,14 +46,14 @@ block content
                                         -var curses = [1, 2, 3, 4, 5, 6]
                                         for curs in curses
                                             option(value=curses.id) #{curs}
-                                //- var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
-                                //- div(class="form-group")
-                                //-     label(for="spec") Выберите специальность
-                                //-     select(name="spec" id="spec")
-                                //-         option(value="") Не выбрано
-                                //-         option(value="test") Test
-                                //-         for spec in specs
-                                //-             option(value=specs.id) #{spec.name}
+                                var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
+                                div(class="form-group")
+                                    label(for="spec") Выберите специальность
+                                    select(name="spec" id="spec")
+                                        option(value="") Не выбрано
+                                        option(value="test") Test
+                                        for spec in specs
+                                            option(value=specs.id) #{spec.name}
                             form(class="lecturer-form")
                                 div(class="form-group")
                                     label(for="department") Выберите кафедру
@@ -71,9 +71,9 @@ block content
                                     label(for="lecturer-chose") Преподаватель
                                     select(name="lecturer-chose" id="lecturer-chose")
                                         option(value="") Не выбрано
-                                        if studs.lecturerProfile
-                                            for lecturer in studs
-                                                option(value=lecturer.id) #{lecturer.suranme}+#{lecturer.name}+#{lecturer.patronymic}+#{lecturer.lecturerProfile.department}
+                                        for lecturer in studs
+                                            if lecturer.lecturerProfile             
+                                                option(value=lecturer.id) #{lecturer.surname} #{lecturer.name} #{lecturer.patronymic} #{lecturer.lecturerProfile.department}
                                 div(class="form-group")
                                     label(for="group-chose") Группа  
                                     select(name="group-chose" id="group-chose")
