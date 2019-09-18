@@ -615,13 +615,6 @@ router.post('/administration/set/group/lecturer', (req, res) => {
 router.post('/administration/get/spec', (req, res) => {
   if (req.body.val === '') {
     models.Spec.find({}, (err, spec) => {
-      // console.log(fakult.length);
-      // const specs = [];
-      // for (let i = 0; i < fakult.length; i += 1) {
-      //   for (let j = 0; j < fakult[i].specs.length; j += 1) {
-      //     specs.push(fakult[i].specs[j]);
-      //   }
-      // }
       const specs = [];
       for (let i = 0; i < spec.length; i += 1) {
         specs.push(spec[i].name);
