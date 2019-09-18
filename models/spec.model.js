@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const specSchema = new Schema({
   name: String,
-  groups: String,
+  groups: [String],
   eduInfo: [
     {
       semester: String,

@@ -24,5 +24,8 @@ header(class="header")
                         a(href="") My Profile
                     li
                         a(href="") Settings
+                    if isAdmin
+                        li
+                            a(href="/administration") Administration
                     li
                         a(href="/auth/logout") Выход

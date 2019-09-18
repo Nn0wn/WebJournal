@@ -19,12 +19,14 @@ $(() => {
     }).done((res) => {
       for (let i = 0; i < res.data.studentProfile.semesters.length; i += 1) {
         for (let j = 0; j < res.data.studentProfile.semesters[i].subjects.length; j += 1) {
+          // eslint-disable-next-line no-underscore-dangle
           if (res.data.studentProfile.semesters[i].subjects[j]._id === subjectId) {
             for (
               let k = 0;
               k < res.data.studentProfile.semesters[i].subjects[j].marks.length;
               k += 1
             ) {
+              // eslint-disable-next-line no-underscore-dangle
               if (res.data.studentProfile.semesters[i].subjects[j].marks[k]._id === markId) {
                 $('#mark-select').val(
                   res.data.studentProfile.semesters[i].subjects[j].marks[k].value
@@ -85,10 +87,10 @@ $(() => {
     $('#comment').val('');
   }
 
-  function addMark(data) {
+  function addMark(info) {
     $.ajax({
       type: 'POST',
-      data: JSON.stringify(data),
+      data: JSON.stringify(info),
       contentType: 'application/json',
       url: '/marks/update'
     }).done((res) => {
@@ -150,8 +152,10 @@ $(() => {
     const classes = $(this)
       .attr('class')
       .split(' ');
+    /* eslint-disable prefer-destructuring */
     data.id = classes[1];
     data.subject = classes[2];
+    /* eslint-enable prefer-destructuring */
     getMarksInfo(classes[2], classes[1]);
     dialog.dialog('open');
   });

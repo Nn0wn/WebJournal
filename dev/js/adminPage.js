@@ -63,8 +63,7 @@ $(() => {
     } else if (status === 'Студент') {
       const studFields = {
         ...pubFields,
-        ...{ fakult: '#fakult', course: '#course' }
-        // spec: '#spec',
+        ...{ fakult: '#fakult', course: '#course', spec: '#spec' }
       };
 
       Object.entries(studFields).forEach((item) => {
@@ -82,7 +81,7 @@ $(() => {
           patronymic: $('#userpatronymic').val(),
           isAdmin,
           fakult: $('#fakult').val(),
-          // spec: $('#spec').val(),
+          spec: $('#spec').val(),
           course: $('#course').val()
         };
       } else {
@@ -128,6 +127,32 @@ $(() => {
         console.log(res);
       });
     }
+  });
+
+  $('#fakult').on('change', function changeSpec() {
+    const selectVal = $(this).val();
+    console.log(selectVal);
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify({ val: selectVal }),
+      contentType: 'application/json',
+      url: '/administration/get/spec'
+    }).done((res) => {
+      console.log(res);
+      const select = $('#spec');
+      let options = [];
+      if (select.prop) {
+        options = select.prop('options');
+      } else {
+        options = select.attr('options');
+      }
+      $('option', select).remove();
+
+      options[0] = new Option('Не выбрано', '');
+      for (let i = 0; i < res.specs.length; i += 1) {
+        options[i + 1] = new Option(res.specs[i], res.specs[i]);
+      }
+    });
   });
 
   $('#group-chose').on('change', function changeGroup() {
