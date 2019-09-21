@@ -11,12 +11,12 @@
 // // });
 
 // // bcrypt.hash('123', null, null, (err, hash) => {
-// //   models.User.create({
-// //     name: 'admin',
-// //     email: 'a@a',
-// //     password: hash,
-// //     isAdmin: true
-// //   });
+// models.User.create({
+//   name: 'admin',
+//   email: 'a@a',
+//   password: hash,
+//   isAdmin: true
+// });
 // // });
 
 // // const faksultets = [
@@ -52,14 +52,14 @@
 
 // // MARKS UPDATING
 
-// // models.User.findOne({ email: 'a@a' }, (err, data) => {
-// //   if (err) {
-// //     console.log(err);
-// //   }
-// //   // console.log(data.studentProfile.subjects[2]);
-// //   // data.studentProfile.subjects[2].marks[0].value = '5';
-// //   // data.save(err);
-// // });
+// models.User.findOne({ email: 'a@a' }, (err, data) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   // console.log(data.studentProfile.subjects[2]);
+//   // data.studentProfile.subjects[2].marks[0].value = '5';
+//   // data.save(err);
+// });
 
 // // const insertSpecs = models.Fakult.findOne({ name: 'ФКТИ' }, (err, data) => {
 // //   Object.entries(specialisationsRus).forEach((item) => {
@@ -182,23 +182,23 @@
 
 // // const testuserId = '5d751ed255b5bf1cb83eb54e';
 
-// // models.User.findByIdAndUpdate(testuserId, { upsert: true }, (err, user) => {
-// //   // console.log(user.studentProfile);
-// //   models.Group.findOne({ students: user._id }, (err, group) => {
-// //     // console.log(group);
-// //     if (group) {
-// //       const semester = { number: '4', subjects: [] };
-// //       for (let i = 0; i < group.subjects.length; i += 1) {
-// //         semester.subjects.push({
-// //           name: group.subjects[i].name,
-// //           marks: [{ value: '1' }, { value: '2' }, { value: '3' }]
-// //         });
-// //       }
-// //       user.studentProfile.semesters = []; /** * CLEAR ALL SEMESTERS ** */
-// //       user.studentProfile.semesters.push(semester);
-// //       user.save();
-// //     }
-// //   });
-// // });
+// models.User.findByIdAndUpdate(testuserId, { upsert: true }, (err, user) => {
+//   // console.log(user.studentProfile);
+//   models.Group.findOne({ students: user._id }, (err, group) => {
+//     // console.log(group);
+//     if (group) {
+//       const semester = { number: '4', subjects: [] };
+//       for (let i = 0; i < group.subjects.length; i += 1) {
+//         semester.subjects.push({
+//           name: group.subjects[i].name,
+//           marks: [{ value: '1' }, { value: '2' }, { value: '3' }]
+//         });
+//       }
+//       user.studentProfile.semesters = []; /** * CLEAR ALL SEMESTERS ** */
+//       user.studentProfile.semesters.push(semester);
+//       user.save();
+//     }
+//   });
+// });
 
 // module.exports;

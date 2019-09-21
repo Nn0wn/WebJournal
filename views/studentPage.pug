@@ -44,7 +44,7 @@ block content
                                                         for mark in subject.marks
                                                             button(class="mark-" class=mark.id class=subject.id name="mark-" + mark.id class="mark" + mark.value id=mark.id title="Дата: " + mark.date +". Комментарии: " + mark.comments)= mark.value
                                                         if canChange
-                                                            button(class="mark- new" class=subject.id name="mark-new" title="Add a new mark" id="new" + subject.id) +
+                                                            button(class="mark- new" class=subject.id name="mark-new" class="markplus" title="Add a new mark" id="new" + subject.id) +
                                             else
                                                 for approvedSbj in show
                                                     if approvedSbj === subject.name 
@@ -55,7 +55,7 @@ block content
                                                                 for mark in subject.marks
                                                                     button(class="mark-" class=mark.id class=subject.id name="mark-" + mark.id class="mark" + mark.value id=mark.id title="Дата: " + mark.date +". Комментарии: " + mark.comments)= mark.value
                                                                 if canChange
-                                                                    button(class="mark- new" class=subject.id name="mark-new" title="Add a new mark" id="new" + subject.id) +               
+                                                                    button(class="mark- new" class=subject.id name="mark-new" class="markplus" title="Add a new mark" id="new" + subject.id) +               
                                         
 block footer
     include layouts/footer.pug

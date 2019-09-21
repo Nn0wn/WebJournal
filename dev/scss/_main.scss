@@ -91,6 +91,16 @@
               margin: 5px;
             }
 
+            .markн {
+              background-color: lighten(red, $amount: 15%);
+              color: white;
+            }
+
+            .mark1 {
+              background-color: lighten(red, $amount: 15%);
+              color: white;
+            }
+
             .mark2 {
               background-color: lighten(red, $amount: 15%);
               color: white;
@@ -104,6 +114,16 @@
             .mark4 {
               background-color: lightgreen;
               color: black;
+            }
+
+            .mark5 {
+              background-color: lightgreen;
+              color: black;
+            }
+
+            .markplus {
+              background-color: $primeColor;
+              color: white;
             }
           }
         }

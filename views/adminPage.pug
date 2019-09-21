@@ -7,84 +7,92 @@ block content
     div(class="main")
             div(class="container")
                 div(class="content")
-                    div(class="table-header")
-                        h1            
-                    div(class="accordion" id="accordion" class="admin-accordion")
-                        h3(class="block-title ui-accordion-header-collapsed") 1
-                        div(class="block-content")
-                            form(class="create-user")
-                                h1 Новый пользователь 
-                                div(class="checkbox-group")
-                                    label(for="username") Права администратора
-                                    input(type="checkbox" name="roots" id="roots")
-                                div(class="form-group")
-                                    label(for="username") Имя
-                                    input(name="username" id="username")
-                                div(class="form-group")
-                                    label(for="usersurname") Фамилия
-                                    input(name="usersurname" id="usersurname")
-                                div(class="form-group")
-                                    label(for="userpatronymic") Отчество
-                                    input(name="userpatronymic" id="userpatronymic")
-                                div(class="form-group")
-                                    label(for="user-status") Статус  
-                                    select(name="user-status" id="user-status")
-                                        option(value="") Не выбрано
-                                        option(value="Студент") Студент
-                                        option(value="Преподаватель") Преподаватель
-                            form(class="student-form")
-                                div(class="form-group")
-                                    label(for="fakult") Выберите факультет
-                                    select(name="fakult" id="fakult")
-                                        option(value="") Не выбрано
-                                        for fak in faks
-                                            option(value=faks.id) #{fak.name}
-                                div(class="form-group")
-                                    label(for="course") Выберите курс
-                                    select(name="course" id="course")
-                                        option(value="") Не выбрано
-                                        -var curses = [1, 2, 3, 4, 5, 6]
-                                        for curs in curses
-                                            option(value=curses.id) #{curs}
-                                -var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
-                                div(class="form-group")
-                                    label(for="spec") Выберите специальность
-                                    select(name="spec" id="spec")
-                                        option(value="") Не выбрано
-                                        //- option(value="test") Test
-                                        //- for spec in specs
-                                        //-     option(value=specs.id) #{spec.name}
-                            form(class="lecturer-form")
-                                div(class="form-group")
-                                    label(for="department") Выберите кафедру
-                                    select(name="department" id="department")
-                                        option(value="") Не выбрано
-                                        -var departments = ["ВТ", "ВМ", "МОЭВМ"]
-                                        for dep in departments
-                                            option(value=dep.id) #{dep}
-                            button(class="confirm-button-1") Ок
-                        h3(class="block-title") 2
-                        div(class="block-content")
-                            form(class="add-lecturer")
-                                h1 Поставить преподавателя
-                                div(class="form-group")
-                                    label(for="lecturer-chose") Преподаватель
-                                    select(name="lecturer-chose" id="lecturer-chose")
-                                        option(value="") Не выбрано
-                                        for lecturer in studs
-                                            if lecturer.lecturerProfile             
-                                                option(value=lecturer.id) #{lecturer.surname} #{lecturer.name} #{lecturer.patronymic} #{lecturer.lecturerProfile.department}
-                                div(class="form-group")
-                                    label(for="group-chose") Группа  
-                                    select(name="group-chose" id="group-chose")
-                                        option(value="") Не выбрано
-                                        for group in groups
-                                            option(value=group.id) #{group.name}     
-                                div(class="form-group")
-                                    label(for="subject-chose") Предмет  
-                                    select(name="subject-chose" id="subject-chose")
-                                        option(value="") Не выбрано       
-                            button(class="confirm-button-2") Ок
+                    div(class="row-of-accords")  
+                        div(class="accord-content")
+                            div(class="accordion" id="accordion-1" class="admin-accordion-1")
+                                h3(class="block-title ui-accordion-header-collapsed") New User
+                                div(class="block-content")
+                                    form(class="create-user")
+                                        h1 Новый пользователь 
+                                        div(class="checkbox-group")
+                                            label(for="username") Права администратора
+                                            input(type="checkbox" name="roots" id="roots")
+                                        div(class="form-group")
+                                            label(for="username") Имя
+                                            input(name="username" id="username")
+                                        div(class="form-group")
+                                            label(for="usersurname") Фамилия
+                                            input(name="usersurname" id="usersurname")
+                                        div(class="form-group")
+                                            label(for="userpatronymic") Отчество
+                                            input(name="userpatronymic" id="userpatronymic")
+                                        div(class="form-group")
+                                            label(for="user-status") Статус  
+                                            select(name="user-status" id="user-status")
+                                                option(value="") Не выбрано
+                                                option(value="Студент") Студент
+                                                option(value="Преподаватель") Преподаватель
+                                    form(class="student-form")
+                                        div(class="form-group")
+                                            label(for="fakult") Выберите факультет
+                                            select(name="fakult" id="fakult")
+                                                option(value="") Не выбрано
+                                                for fak in faks
+                                                    option(value=faks.id) #{fak.name}
+                                        div(class="form-group")
+                                            label(for="course") Выберите курс
+                                            select(name="course" id="course")
+                                                option(value="") Не выбрано
+                                                -var curses = [1, 2, 3, 4, 5, 6]
+                                                for curs in curses
+                                                    option(value=curses.id) #{curs}
+                                        -var specs = ["Applied Mathematics and Informatics", "Computer Systems Engineering and Informatics", "Information Systems and Technologies", "Software Engineering", "Computer Security", "System Analysis and Control", "Control in Technical Systems"]
+                                        div(class="form-group")
+                                            label(for="spec") Выберите специальность
+                                            select(name="spec" id="spec")
+                                                option(value="") Не выбрано
+                                                //- option(value="test") Test
+                                                //- for spec in specs
+                                                //-     option(value=specs.id) #{spec.name}
+                                    form(class="lecturer-form")
+                                        div(class="form-group")
+                                            label(for="department") Выберите кафедру
+                                            select(name="department" id="department")
+                                                option(value="") Не выбрано
+                                                -var departments = ["ВТ", "ВМ", "МОЭВМ"]
+                                                for dep in departments
+                                                    option(value=dep.id) #{dep}
+                                    button(class="confirm-button-1") Ок
+                                h3(class="block-title") Set a lecturer for a group
+                                div(class="block-content")
+                                    form(class="add-lecturer")
+                                        h1 Поставить преподавателя
+                                        div(class="form-group")
+                                            label(for="lecturer-chose") Преподаватель
+                                            select(name="lecturer-chose" id="lecturer-chose")
+                                                option(value="") Не выбрано
+                                                for lecturer in studs
+                                                    if lecturer.lecturerProfile             
+                                                        option(value=lecturer.id) #{lecturer.surname} #{lecturer.name} #{lecturer.patronymic} #{lecturer.lecturerProfile.department}
+                                        div(class="form-group")
+                                            label(for="group-chose") Группа  
+                                            select(name="group-chose" id="group-chose")
+                                                option(value="") Не выбрано
+                                                for group in groups
+                                                    option(value=group.id) #{group.name}     
+                                        div(class="form-group")
+                                            label(for="subject-chose") Предмет  
+                                            select(name="subject-chose" id="subject-chose")
+                                                option(value="") Не выбрано       
+                                    button(class="confirm-button-2") Ок
+                        div(class="accord-content accord-content-last")
+                            div(class="accordion" id="accordion-2" class="admin-accordion-2")
+                                h3(class="block-title ui-accordion-header-collapsed") TODO
+                                div(class="block-content")
+                                    p Just test
+                                h3(class="block-title ui-accordion-header-collapsed") TODO  
+                                div(class="block-content")  
+                                    p Just test       
     
 block footer
     include layouts/footer.pug

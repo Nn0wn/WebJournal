@@ -1,20 +1,35 @@
-.student-form,
-.lecturer-form {
-  display: none;
-}
+.row-of-accords {
+  display: flex;
+  flex-direction: row;
 
-input {
-  border-color: 1px solid lightgray;
-}
+  .accord-content {
+    display: flex;
+    width: 100%;
+    margin-right: $freeSpace;
+  }
 
-input,
-textarea,
-select {
-  &.error {
-    border-color: $errorColor;
-    color: $errorColor;
-    &::placeholder {
-      color: lighten($errorColor, $amount: 20);
+  .accord-content-last {
+    margin-right: 0px;
+  }
+
+  .student-form,
+  .lecturer-form {
+    display: none;
+  }
+
+  input {
+    border-color: 1px solid lightgray;
+  }
+
+  input,
+  textarea,
+  select {
+    &.error {
+      border-color: $errorColor;
+      color: $errorColor;
+      &::placeholder {
+        color: lighten($errorColor, $amount: 20);
+      }
     }
   }
 }

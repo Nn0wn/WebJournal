@@ -1,5 +1,5 @@
 $(() => {
-  $('#accordion').accordion({ collapsible: true });
+  $('.accordion').accordion({ collapsible: true });
 
   const data = {
     id: '',
@@ -94,10 +94,8 @@ $(() => {
       contentType: 'application/json',
       url: '/marks/update'
     }).done((res) => {
-      console.log(res);
       if (res.ok) {
         if (res.type === 'update') {
-          console.log('updating');
           $(`.${data.id}`).html(data.value);
           $(`.${data.id}`).prop('title', `Дата: ${Date(Date.now())}. Комментарии: ${data.comment}`);
           $(`.${data.id}`).removeClass(
@@ -108,15 +106,27 @@ $(() => {
           );
           $(`.${data.id}`).addClass(`mark${data.value}`);
         } else {
-          console.log('adding');
           $(`#new${data.subject}`).before(
             `<button class="mark- ${res.newId} ${data.subject} mark${data.value}" name=mark-${
               res.newId
             } class=mark${data.value} id=${res.newId} title="Дата:${Date(
               Date.now()
-            )}. Комментарии:${data.comment}">${data.value}</button>`
+            )}. Комментарии: ${data.comment}">${data.value}</button>`
           );
         }
+      }
+    });
+  }
+
+  function deleteMark(info) {
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(info),
+      contentType: 'application/json',
+      url: '/marks/delete'
+    }).done((res) => {
+      if (res.ok) {
+        $(`.${info.id}`).remove();
       }
     });
   }
@@ -137,6 +147,11 @@ $(() => {
           dialog.dialog('close');
         }
       },
+      Delete() {
+        deleteMark(data);
+        onClose();
+        dialog.dialog('close');
+      },
       Cancel() {
         onClose();
         dialog.dialog('close');
@@ -148,7 +163,7 @@ $(() => {
     }
   });
 
-  $('button[name^="mark-"]').on('click', function buttonClick() {
+  $(document).on('click', 'button[name^="mark-"]', function buttonClick() {
     const classes = $(this)
       .attr('class')
       .split(' ');

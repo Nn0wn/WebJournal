@@ -575,6 +575,38 @@ router.post('/marks/update', (req, res) => {
   );
 });
 
+router.post('/marks/delete', (req, res) => {
+  models.User.findOneAndUpdate(
+    { 'studentProfile.semesters.subjects._id': req.body.subject },
+    { upsert: true },
+    (err, user) => {
+      console.log(req.body);
+      console.log(user);
+      for (let i = 0; i < user.studentProfile.semesters.length; i += 1) {
+        console.log('first');
+        for (let j = 0; j < user.studentProfile.semesters[i].subjects.length; j += 1) {
+          console.log('second');
+          if (user.studentProfile.semesters[i].subjects[j].id === req.body.subject) {
+            console.log('third');
+            for (let k = 0; k < user.studentProfile.semesters[i].subjects[j].marks.length; k += 1) {
+              console.log('fourth');
+              if (user.studentProfile.semesters[i].subjects[j].marks[k].id === req.body.id) {
+                console.log('found');
+                user.studentProfile.semesters[i].subjects[j].marks[k].remove();
+                user.save();
+                res.json({
+                  ok: true
+                });
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  );
+});
+
 router.post('/marks/get', (req, res) => {
   models.User.findById(req.body.page, (err, data) => {
     res.json({
