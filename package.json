@@ -24,7 +24,7 @@
     "jquery-ui-dist": "^1.12.1",
     "mongoose": "^5.5.13",
     "morgan": "^1.7.0",
-    "pug": "^2.0.0-beta6",
+    "pug": "^3.0.1",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
